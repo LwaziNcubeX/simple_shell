@@ -1,8 +1,10 @@
 #include "shell.h"
 
+char *cmd = NULL;
+
 int main(void)
 {
-    char *cmd = NULL;
+    
     size_t len = 0;
     ssize_t bytesRead;
 
@@ -16,7 +18,7 @@ int main(void)
         {
             break;
         }
-
+        execute();
         memset(cmd, 0, len);
         len = 0;
 

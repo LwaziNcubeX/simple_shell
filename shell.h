@@ -7,9 +7,14 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/types.h>
+#include <sys/wait.h>
+
+extern char *cmd;
+extern char **environ;
 
 /*FUNCTION PROTOTYPES*/
 void prompt(void);
+int execute(void);
 
 
 #endif /* SHELL_H */
