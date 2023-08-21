@@ -2,14 +2,21 @@
 #define SHELL_H
 
 /*INCLUDED HEADERS*/
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/types.h>
+#include <sys/stat.h>
+#include <dirent.h>
+#include <sys/wait.h>
+
+#define MAX_ARGS 10
+#define MAX_CMD_LEN 100
 
 /*FUNCTION PROTOTYPES*/
 void prompt(void);
+int parse_cmd(char *cmd, char **args);
+int execute_cmd(char **args);
 
 
 #endif /* SHELL_H */
