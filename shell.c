@@ -2,30 +2,30 @@
 
 int main(void)
 {
-    char *cmd = NULL;
-    size_t len = 0;
-    ssize_t bytesRead;
+    char cmd[MAX_CMD_LEN];
+    char *args[MAX_ARGS+1];
+    int arg_count;
 
     while(1)
     {
         prompt();
         
-        bytesRead = getline(&cmd, &len, stdin);
-
-        if(bytesRead == -1 || strcmp(cmd, "\n") == 0)
+        if (fgets(cmd, MAX_CMD_LEN, stdin) == NULL)
         {
             break;
         }
 
-        memset(cmd, 0, len);
-        len = 0;
-
-        if (cmd)
+        arg_count = parse_cmd(cmd, args);
+      
+        if (arg_count > 0 && strcmp(args[0], "exit") == 0)
         {
-            free(cmd);
+            break;
         }
-        
+        else
+        {
+            execute_cmd(args);
+        }
     }
-    free(cmd);
+
     return 0;
 }
