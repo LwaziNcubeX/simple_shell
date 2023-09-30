@@ -1,4 +1,5 @@
 #include "shell.h"
+
 int execute_cmd(char **args)
 {
     pid_t pid = fork();
@@ -9,7 +10,10 @@ int execute_cmd(char **args)
     }
     else if (pid == 0)
     {
-        execve(args[0], args, NULL);
+        /*properly terminate the args array with a NULL pointer*/
+        args[MAX_ARGS] = NULL;
+
+        execve(args[0], args, environ);
         perror("./hsh");
         _exit(EXIT_FAILURE);
     }

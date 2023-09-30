@@ -12,6 +12,7 @@
 
 #define MAX_ARGS 10
 #define MAX_CMD_LEN 100
+extern char **environ;
 
 /*FUNCTION PROTOTYPES*/
 void prompt(void);
