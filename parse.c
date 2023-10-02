@@ -9,5 +9,6 @@ int parse_cmd(char *cmd, char **args)
     {
         args[arg_count++] = strtok(NULL, " \n");
     }
+
     return arg_count;
 }
