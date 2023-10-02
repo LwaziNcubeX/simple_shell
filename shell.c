@@ -21,9 +21,9 @@ int main(void)
 
         arg_count = parse_cmd(cmd, args);
       
-        if (arg_count > 0 && strcmp(args[0], "exit") == 0)
+        if (strcmp(args[0], "exit") == 0)
         {
-            break;
+            exit_cmd(args);
         }
         else if (arg_count > 0 && strcmp(args[0], "cd") == 0)
         {

@@ -18,6 +18,7 @@ extern char **environ;
 void prompt(void);
 int parse_cmd(char *cmd, char **args);
 int execute_cmd(char **args);
+int exit_cmd(char **args);
 
 
 #endif /* SHELL_H */
